@@ -2,7 +2,6 @@
 def print_last_digit(number):
     if number < 0:
         pos_num = number * -1
-        print(f"Positive number: {pos_num}")
         last_digit = pos_num % 10
 #        last_digit = last_digit * -1
     else:
