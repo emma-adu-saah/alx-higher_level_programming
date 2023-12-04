@@ -7,14 +7,14 @@ if __name__ == "__main__":
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
     else:
-            args = sys.argv[1:]
-            a = int(args[0])
-            b = int(args[2])
-            operator = args[1]
+        args = sys.argv[1:]
+        a = int(args[0])
+        b = int(args[2])
+        operator = args[1]
     if operator == "+":
         print("{} + {} = {}".format(a, b, add(a, b)))
     elif operator == "-":
-        print("{] - {] = {}".format(a, b, sub(a, b)))
+        print("{] - {} = {}".format(a, b, sub(a, b)))
     elif operator == "/":
         print("{} / {} = {}".format(a, b, div(a, b)))
     elif operator == "*":
