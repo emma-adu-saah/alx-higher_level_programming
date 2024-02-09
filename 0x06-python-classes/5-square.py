@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import sys
 """
 This module has a class, Square, that defines a square by:
    Private instance attribute size
@@ -40,3 +41,16 @@ class Square(object):
         """ Returns the area(int) of the square"""
         ar = self.__size * self.__size
         return (ar)
+
+    def my_print(self):
+        """Prints in the stdout the square with the character #"""
+        if self.__size == 0:
+            sys.stdout.write("")
+        else:
+            ar = self.__size
+            i = 0
+            while i <= ar:
+                for j in range(ar):
+                    sys.stdout.write("#")
+                sys.stdout.write("\n")
+                i += 1
