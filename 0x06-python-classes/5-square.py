@@ -48,7 +48,7 @@ class Square(object):
         else:
             ar = self.__size
             i = 0
-            while i <= ar:
+            while i < ar:
                 for j in range(ar):
                     print("#", end="")
                 print()
