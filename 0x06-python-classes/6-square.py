@@ -8,21 +8,29 @@ This module has a class, Square, that defines a square by:
 class Square(object):
     """Square defines a square by: """
 
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """
         Attributes:
             __size: A private instance attribute. Determines the size of
                 the square.
-            position: A private instance attribute of type tuple. 
+            __position: A private instance attribute of type tuple, and of
+                len: 2
         Args:
             size (int): default size of the square. It must be an integer and
                 must be greater than or equal to 0
+            position (tuple)
+
         """
         self.__size = size
+        self.__position = position
         if type(size) is not int:
             raise TypeError("size must be an integer")
         if size < 0:
             raise ValueError("size must be >= 0")
+        if not isinstance(position, tuple) or len(position) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if not all(isinstance(cord, int) and cord >= 0 for coord in position):
+            raise TypeError("position must be a tuple of 2 positive integers")
 
     @property
     def size(self):
@@ -49,7 +57,10 @@ class Square(object):
         else:
             ar = self.__size
             i = 0
+            x_cord = self.__position[0]
             while i < ar:
+                for cord in range(x_cord):
+                    print(" ", end="")
                 for j in range(ar):
                     print("#", end="")
                 print()
