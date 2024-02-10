@@ -29,7 +29,7 @@ class Square(object):
             raise ValueError("size must be >= 0")
         if not isinstance(position, tuple) or len(position) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
-        if not all(isinstance(cord, int) and cord >= 0 for coord in position):
+        if not all(isinstance(cord, int) and cord >= 0 for cord in position):
             raise TypeError("position must be a tuple of 2 positive integers")
 
     @property
