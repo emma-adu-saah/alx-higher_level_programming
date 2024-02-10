@@ -70,6 +70,7 @@ class Square(object):
             ar = self.__size
             i = 0
             x_cord = self.__position[0]
+            [print("") for i in range(self.__position[1])]
             while i < ar:
                 for cord in range(x_cord):
                     print(" ", end="")
