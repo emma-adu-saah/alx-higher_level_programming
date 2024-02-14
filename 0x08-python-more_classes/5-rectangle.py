@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains Rectangle class that defines a rectangle by 1-rectangle.py
+Contains Rectangle class that defines a rectangle by 3-rectangle.py
 """
 
 
@@ -29,6 +29,12 @@ class Rectangle:
 
     def __str__(self):
         return (f"{self.my_print()}")
+
+    def __repr__(self):
+        return ("Rectangle({}, {})".format(self.__width, self.__height))
+
+    def __del__(self):
+        print("Bye rectangle...")
 
     @property
     def width(self):
