@@ -27,12 +27,19 @@ class Rectangle(Base):
         self.__x = x
         self.__y = y
 
+        # Validating each attribute with attribute validator
+        self.attribute_validator("width", width)
+        self.attribute_validator("height", height)
+        self.attribute_validator("x", x)
+        self.attribute_validator("y", y)
+
     @property
     def width(self):
         return (self.__width)
 
     @width.setter
     def width(self, width):
+        self.attribute_validator("width", width)
         self.__width = width
 
     @property
@@ -41,6 +48,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, height):
+        self.attribute_validator("height", height)
         self.__height = height
 
     @property
@@ -49,6 +57,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, x):
+        self.attribute_validator("x", x)
         self.__x = x
 
     @property
@@ -57,4 +66,14 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, y):
+        self.attribute_validator("y", y)
         self.__y = y
+
+    @staticmethod
+    def attribute_validator(name, value):
+        if not isinstance(value, int):
+            raise TypeError("{} must be an integer".format(name))
+        if (name == 'x' or name == 'y') and (value < 0):
+            raise ValueError("{} must be >= 0".format(name))
+        if (name != 'x' or name != 'y') and value < 0:
+            raise ValueError("{} must be > 0".format(name))
