@@ -20,7 +20,9 @@ class Rectangle(Base):
             y (int): y coordinate of the rectangle
             id (int): id of the rectangle
         """
+
         self.id = id
+
         super().__init__(id)
         self.__width = width
         self.__height = height
@@ -28,10 +30,11 @@ class Rectangle(Base):
         self.__y = y
 
         # Validating each attribute with attribute validator
-        self.attribute_validator("width", width)
-        self.attribute_validator("height", height)
-        self.attribute_validator("x", x)
-        self.attribute_validator("y", y)
+        self.attribute_validator("width",  self.__width)
+        self.attribute_validator("height", self.__height)
+        self.attribute_validator("x", self.__x)
+        self.attribute_validator("y", self.__y)
+
 
     @property
     def width(self):
@@ -70,10 +73,10 @@ class Rectangle(Base):
         self.__y = y
 
     @staticmethod
-    def attribute_validator(name, value):
+    def attribute_validator(attr_name, value):
         if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
-        if (name == 'x' or name == 'y') and (value < 0):
-            raise ValueError("{} must be >= 0".format(name))
-        if (name != 'x' or name != 'y') and value < 0:
-            raise ValueError("{} must be > 0".format(name))
+            raise TypeError("{} must be an integer".format(attr_name))
+        if (attr_name == 'x' or attr_name == 'y') and (value < 0):
+            raise ValueError("{} must be >= 0".format(attr_name))
+        if (attr_name == 'height' or attr_name == "width") and value <= 0:
+            raise ValueError("{} must be > 0".format(attr_name))
