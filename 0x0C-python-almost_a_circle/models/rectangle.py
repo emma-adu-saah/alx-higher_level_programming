@@ -71,6 +71,9 @@ class Rectangle(Base):
         self.attribute_validator("y", y)
         self.__y = y
 
+    def area(self):
+        return (self.__width * self.__height)
+
     @staticmethod
     def attribute_validator(attr_name, value):
         if not isinstance(value, int):
