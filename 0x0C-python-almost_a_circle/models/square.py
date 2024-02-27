@@ -1,4 +1,4 @@
-#!/usr/bin/pythn3
+#!/usr/bin/python3
 """This module contains a Square class that inherits from the Rectangle
 class
 """
