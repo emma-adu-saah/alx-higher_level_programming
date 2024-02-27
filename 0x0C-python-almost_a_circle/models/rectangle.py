@@ -35,7 +35,6 @@ class Rectangle(Base):
         self.attribute_validator("x", self.__x)
         self.attribute_validator("y", self.__y)
 
-
     @property
     def width(self):
         return (self.__width)
