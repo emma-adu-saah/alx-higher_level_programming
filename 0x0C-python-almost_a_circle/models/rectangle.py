@@ -71,6 +71,17 @@ class Rectangle(Base):
         self.attribute_validator("y", y)
         self.__y = y
 
+    def __str__(self):
+        """Overides the default __str__:
+        Returns:
+            '[Rectangle] (<id>) <x>/<y> - <width>/<height>'
+        """
+        return_string = "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
+                                                       self.id, self.__x,
+                                                       self.__y, self.__width,
+                                                       self.__height)
+        return (return_string)
+
     def area(self):
         """Calculates and returns the area value of the Rectangle Instance"""
         return (self.__width * self.__height)
