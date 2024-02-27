@@ -89,8 +89,14 @@ class Rectangle(Base):
         return (self.__width * self.__height)
 
     def display(self):
-        """Prints in stdout the Rectangle instance with '#'"""
+        """Prints in stdout the Rectangle instance with '#'
+        Also uses x and y as coordinates
+        """
+        for h in range(self.__y):
+            print('\n', end="")
         for i in range(self.__height):
+            for x in range(self.__x):
+                print(" ", end="")
             for j in range(self.__width):
                 print('#', end="")
             print('\n', end="")
