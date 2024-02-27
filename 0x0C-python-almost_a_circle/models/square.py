@@ -22,7 +22,7 @@ class Square(Rectangle):
             y (int): y coordinate of the square
             id (int): id of the rectangle
         """
-
+        self.__size = size
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
