@@ -2,9 +2,7 @@
 const baseSquare = require('./5-square');
 
 class Square extends baseSquare {
-  constructor (size) {
-    super(size);
-  }
+
   charPrint (c) {
     if (c === undefined || c === null) { c = 'X'; }
     const character = c.repeat(this.size);
