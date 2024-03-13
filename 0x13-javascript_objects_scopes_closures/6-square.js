@@ -1,7 +1,10 @@
 #!/usr/bin/node
-const Square1 = require('./5-square');
+const baseSquare = require('./5-square');
 
-class Square extends Square1 {
+class Square extends baseSquare {
+  constructor (size) {
+    super(size);
+  }
   charPrint (c) {
     if (c === undefined || c === null) { c = 'X'; }
     const character = c.repeat(this.size);
