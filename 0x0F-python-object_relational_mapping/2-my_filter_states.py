@@ -15,7 +15,7 @@ def list_states_by_input(username, password, db_name, name):
                          passwd=password,
                          db=db_name)
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id".format(name)
+    query = "SELECT * FROM states WHERE name = '{}' COLLATE utf8mb4_0900_as_cs ORDER BY id".format(name)
     cursor.execute(str(query))
     result = cursor.fetchall()
 
