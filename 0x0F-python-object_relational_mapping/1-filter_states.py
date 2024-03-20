@@ -13,7 +13,7 @@ def list_states_with_n(username, password, db_name):
                          passwd=password,
                          db=db_name)
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name COLLATE utf8mb4_bin LIKE 'N%' ORDER BY id")
+    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8mb4_0900_as_cs ORDER BY id")
     result = cursor.fetchall()
 
     for row in result:
