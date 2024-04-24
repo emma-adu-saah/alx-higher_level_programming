@@ -3,8 +3,8 @@ const baseSquare = require('./5-square');
 
 class Square extends baseSquare {
   constructor (size) {
-    super(size);
-    this.size = size;
+    super(size, size);
+	this.size = size;
   }
 
   charPrint (c) {
@@ -13,6 +13,10 @@ class Square extends baseSquare {
     for (let i = 0; i < this.size; i++) {
       console.log(character);
     }
+  }
+
+  double () {
+	this.size *= 2;
   }
 }
 
