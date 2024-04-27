@@ -13,12 +13,10 @@ def list_all_cities(username, password, db_name, state):
                          passwd=password,
                          db=db_name)
     cursor = db.cursor()
-    cursor.execute("SELECT cities.name\
-                    FROM cities LEFT JOIN states\
-                    ON states.id = cities.state_id\
-                    WHERE states.name = %s\
-                    ORDER BY cities.id", (state,))
+    cursor.execute(
+        """SELECT cities.name FROM cities WHERE cities.state_id = (SELECT states.id FROM states WHERE states.name = %s) ORDER BY cities.id""", (state,))
     result = cursor.fetchall()
+    print(f"This is result {result}")
     print(", ".join([row for row in result]))
 
     db.close()

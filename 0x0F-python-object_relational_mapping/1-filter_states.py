@@ -1,25 +1,23 @@
 #!/usr/bin/python3
-"""Lists all states with a name starting with N"""
+"""Lists all states with a name starting 'N' with
+   from the database hbtn_0e_0_usa
+"""
 import MySQLdb
 import sys
 
 ARGS = sys.argv[1:]
 
 
-def list_states_with_n(username, password, db_name):
-    """Lists all states that starts with N"""
-    db = MySQLdb.connect(host="localhost",
-                         user=username,
-                         passwd=password,
-                         db=db_name)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' COLLATE utf8mb4_0900_as_cs ORDER BY id")
-    result = cursor.fetchall()
-
-    for row in result:
-        print(row)
-
-    db.close()
+def all_states(host, user, passwd, db_name):
+    db = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db_name)
+    cur = db.cursor()
+    cur.execute("""
+        SELECT * FROM states
+        WHERE name LIKE 'N%'
+        ORDER BY states.id ASC
+    """)
+    result = cur.fetchall()
+    return (result)
 
 
 if __name__ == "__main__":
@@ -27,4 +25,6 @@ if __name__ == "__main__":
     password = ARGS[1]
     db_name = ARGS[2]
 
-    list_states_with_n(username, password, db_name)
+    states = all_states('localhost', username, password, db_name)
+    for row in states:
+        print(row)

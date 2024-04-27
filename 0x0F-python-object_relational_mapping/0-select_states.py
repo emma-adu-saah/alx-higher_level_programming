@@ -5,7 +5,6 @@ import sys
 
 ARGS = sys.argv[1:]
 
-
 def lists_states(username, password, db_name):
     """Connects to a database and lists states"""
     db = MySQLdb.connect(host="localhost",
@@ -18,7 +17,6 @@ def lists_states(username, password, db_name):
     for row in result:
         print(row)
     db.close()
-
 
 if __name__ == "__main__":
     username = ARGS[0]
